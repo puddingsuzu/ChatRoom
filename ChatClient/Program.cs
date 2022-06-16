@@ -8,6 +8,9 @@ namespace ChatClient
         public static void Main(string[] args)
         {
             var client = new ChatCore.ChatClient();
+
+            Console.WriteLine("<Please enter your name...>");
+            var name = Console.ReadLine();
             var succeed = client.Connect("127.0.0.1", 4099);
 
             if (!succeed)
@@ -15,6 +18,7 @@ namespace ChatClient
                 return;
             }
 
+            client.SetName(name);
             Console.WriteLine("<You can press any key to start entering text...>");
 
             while (true)
@@ -26,7 +30,7 @@ namespace ChatClient
                     client.Disconnect();
                     break;
                 }
-                client.SendData(msg);
+                client.SendMessage(msg);
                 Console.WriteLine("<Message sent, press any key to start entering text again...>");
             }
         }
