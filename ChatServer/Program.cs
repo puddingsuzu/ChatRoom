@@ -1,15 +1,20 @@
 ﻿using System;
+using System.Net;
+using System.Net.Sockets;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+using ChatCore;
 
 namespace ChatServer
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            var server = new ChatCore.ChatServer();
+            server.Bind(4099);
+            server.Start();
         }
+
     }
 }
