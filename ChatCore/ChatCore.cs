@@ -81,7 +81,7 @@ namespace ChatCore
             var buffer = new byte[numBytes];
             var bytesRead = stream.Read(buffer, 0, numBytes);
 
-            var request = System.Text.Encoding.ASCII.GetString(buffer).Substring(0, bytesRead);
+            var request = System.Text.Encoding.Unicode.GetString(buffer).Substring(0, bytesRead);
             Console.WriteLine("Text: {0} from {1}", request, clientId);
         }
     }

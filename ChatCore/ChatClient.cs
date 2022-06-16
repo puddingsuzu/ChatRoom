@@ -43,7 +43,7 @@ namespace ChatCore
 
         public void SendData(string message)
         {
-            var requestBuffer = System.Text.Encoding.Unicode.GetBytes(message);
+            var requestBuffer = System.Text.Encoding.ASCII.GetBytes(message);
 
             m_client.GetStream().Write(requestBuffer, 0, requestBuffer.Length);
         }
